@@ -1,0 +1,66 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title> Admin </title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-dark text-white">
+    <a class="navbar-brand"> Assessment Management </a>
+    <form class="form-inline">
+        <div th:with="loginUrl=(${lurl})">
+            <a th:href="@{${loginUrl}}" }
+               class="btn btn-dark text-white">
+                Logout
+            </a>
+        </div>
+    </form>
+</nav>
+<br>
+<br>
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div th:with="baseUrl=(${aurl})">
+                    <a th:href="@{${baseUrl}}" }
+                       class="btn btn-dark text-white">
+                        Add a Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div th:with="baseUrls=(${asurl})">
+                    <a th:href="@{${baseUrls}}" }
+                       class="btn btn-dark text-white">
+                        Show all scheduled assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

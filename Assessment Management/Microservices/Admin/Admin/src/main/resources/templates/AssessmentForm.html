@@ -1,0 +1,82 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <title>Adding a assessment</title>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-dark text-white">
+    <a class="navbar-brand">Assessment List</a>
+    <form class="form-inline">
+        <div th:with="loginUrl=(${lurl})">
+            <a th:href="@{${loginUrl}}" }
+               class="btn btn-dark text-white">
+                Logout
+            </a>
+        </div>
+    </form>
+</nav>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3 shadow-sm p-3 mb-5 rounded bg-dark text-white">
+            <form action="#" th:action="@{/admin/AssessmentAdd}"
+                  th:object="${assessment}" method="POST">
+
+                <div class="form-group">
+                    Select Assessment Type <br> <select th:field="*{assessmentType}">
+                    <option th:value="Technical" th:text="Technical"/>
+                    <option th:value="Behavioral" th:text="Behavioral"/>
+                </select>
+                    <br><br>
+                    Assessment Name<input type="text"
+                                          th:field="*{assessmentName}" class="form-control mb-4 col-4"
+                                          placeholder="Enter Assessment Name" required/>
+                </div>
+                <button type="submit" class="btn btn-info col-4">Add
+                    Assessment
+                </button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Assessment Type</th>
+            <th>Assessment Name</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempAssessment : ${allAssessment}">
+
+            <td th:text="${tempAssessment.assessmentType}"/>
+            <td th:text="${tempAssessment.assessmentName}"/>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+
+</html>

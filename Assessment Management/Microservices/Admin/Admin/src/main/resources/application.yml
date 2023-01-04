@@ -1,0 +1,41 @@
+server:
+  port: 0
+spring:
+  application:
+    name: Admin-Application
+  datasource:
+    password: Emp
+    url: jdbc:mysql://127.0.0.1:3306/employee_registration?user=Employee
+    username: Employee
+  jpa:
+    open-in-view: true
+    show:
+      sql: true
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+
+
+
+pivotal:
+  admin:
+    name: Admin-Application
+  login:
+    name: LOGIN
+  employee:
+    name: EMPLOYEE-REGISTARTION
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+

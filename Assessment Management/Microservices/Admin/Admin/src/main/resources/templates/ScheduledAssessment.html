@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>  Scheduled Assessments </title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-dark text-white">
+    <a class="navbar-brand">Scheduled Assessment</a>
+    <form class="form-inline">
+        <div th:with="loginUrl=(${lurl})">
+            <a th:href="@{${loginUrl}}" }
+               class="btn btn-dark text-white">
+                Logout
+            </a>
+        </div>
+    </form>
+</nav>
+<br>
+<br>
+<br>
+<div class="container">
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Employee ID</th>
+            <th>Assessment Name</th>
+            <th>Scheduled Date</th>
+            <th>Assessment Type</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempEmployee : ${employee}">
+
+            <td th:text="${tempEmployee.empId}"/>
+            <td th:text="${tempEmployee.assessmentName}"/>
+            <td th:text="${tempEmployee.assessmentDate}"/>
+            <td th:text="${tempEmployee.assessmentType}"/>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
